@@ -2,12 +2,7 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { User, Briefcase, Code, Award } from "lucide-react";
 import profileImg from "@/assets/profile.png";
 
-const stats = [
-  { icon: Briefcase, value: "5+", label: "Years Experience" },
-  { icon: Code, value: "40+", label: "Projects Built" },
-  { icon: User, value: "20+", label: "Happy Clients" },
-  { icon: Award, value: "10+", label: "Certifications" },
-];
+const stats: { icon: typeof Briefcase; value: string; label: string }[] = [];
 
 const AboutSection = () => {
   const sectionRef = useScrollReveal();
@@ -42,29 +37,11 @@ const AboutSection = () => {
             <h3 className="text-2xl md:text-3xl font-bold mb-6">
               Iradukunda Ishimwe Emmanuel
             </h3>
-            <p className="text-muted-foreground leading-relaxed mb-4">
-              I'm a passionate Full Stack Developer with 5+ years of experience building scalable web applications 
-              and cloud architectures. I love turning complex problems into elegant, user-friendly solutions.
-            </p>
             <p className="text-muted-foreground leading-relaxed mb-8">
-              From architecting microservices on AWS to crafting pixel-perfect UIs with React, I thrive 
-              across the full stack. When I'm not coding, I'm contributing to open source, writing technical 
-              articles, or exploring the latest in DevOps and AI.
+              Details coming soon...
             </p>
-
-            <div className="flex flex-wrap gap-3">
-              {["React", "TypeScript", "Node.js", "AWS", "Docker", "PostgreSQL"].map((tech) => (
-                <span
-                  key={tech}
-                  className="px-3 py-1 rounded-full border border-primary/30 bg-primary/5 text-primary text-sm font-medium"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
           </div>
         </div>
-
         {/* Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20">
           {stats.map((stat, i) => (
