@@ -10,12 +10,12 @@ const Footer = () => {
               <Code2 className="w-4 h-4 text-primary-foreground" />
             </div>
             <span className="font-bold text-foreground">
-              Alex<span className="text-primary">Dev</span>
+              Emmanuel<span className="text-primary">Dev</span>
             </span>
           </div>
 
           <p className="text-muted-foreground text-sm text-center">
-            © {new Date().getFullYear()} Alex Chen. Built with React & ❤️
+            © {new Date().getFullYear()} Iradukunda Ishimwe Emmanuel. Built with React & ❤️
           </p>
 
           <div className="flex items-center gap-3">

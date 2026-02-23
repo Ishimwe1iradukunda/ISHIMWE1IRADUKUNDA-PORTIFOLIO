@@ -1,5 +1,6 @@
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { User, Briefcase, Code, Award } from "lucide-react";
+import profileImg from "@/assets/profile.png";
 
 const stats = [
   { icon: Briefcase, value: "5+", label: "Years Experience" },
@@ -26,13 +27,8 @@ const AboutSection = () => {
             <div className="relative">
               {/* Glow ring */}
               <div className="absolute -inset-4 rounded-2xl bg-primary/10 blur-xl" />
-              <div className="relative w-72 h-72 rounded-2xl border-2 border-primary/30 overflow-hidden bg-secondary flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-28 h-28 rounded-full bg-primary/10 border-2 border-primary/30 flex items-center justify-center mx-auto mb-4">
-                    <User className="w-14 h-14 text-primary" />
-                  </div>
-                  <p className="text-muted-foreground text-sm">Profile Photo</p>
-                </div>
+              <div className="relative w-72 h-72 rounded-2xl border-2 border-primary/30 overflow-hidden bg-secondary">
+                <img src={profileImg} alt="Iradukunda Ishimwe Emmanuel" className="w-full h-full object-cover" />
               </div>
               {/* Floating badge */}
               <div className="absolute -bottom-4 -right-4 glass rounded-xl px-4 py-2 glow-sm">
@@ -44,7 +40,7 @@ const AboutSection = () => {
           {/* Text side */}
           <div className="reveal-right">
             <h3 className="text-2xl md:text-3xl font-bold mb-6">
-              Building the future, one commit at a time.
+              Iradukunda Ishimwe Emmanuel
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-4">
               I'm a passionate Full Stack Developer with 5+ years of experience building scalable web applications 

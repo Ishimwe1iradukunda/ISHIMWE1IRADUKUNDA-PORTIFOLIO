@@ -2,7 +2,7 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Github, Linkedin, Twitter, Mail, MapPin, Send, CheckCircle } from "lucide-react";
+import { Github, Linkedin, Twitter, Mail, MapPin, Phone, Send, CheckCircle } from "lucide-react";
 import { useState } from "react";
 
 const contactSchema = z.object({
@@ -28,7 +28,7 @@ const ContactSection = () => {
   const onSubmit = async (data: ContactForm) => {
     // Simulate sending — replace with EmailJS or your backend
     await new Promise((r) => setTimeout(r, 1200));
-    const mailto = `mailto:alex@example.com?subject=${encodeURIComponent(data.subject)}&body=${encodeURIComponent(`From: ${data.name} <${data.email}>\n\n${data.message}`)}`;
+    const mailto = `mailto:iradukundaishimwe123@gmail.com?subject=${encodeURIComponent(data.subject)}&body=${encodeURIComponent(`From: ${data.name} <${data.email}>\n\n${data.message}`)}`;
     window.location.href = mailto;
     setSubmitted(true);
     reset();
@@ -58,8 +58,9 @@ const ContactSection = () => {
 
             <div className="space-y-5 mb-10">
               {[
-                { icon: Mail, label: "Email", value: "alex@example.com", href: "mailto:alex@example.com" },
-                { icon: MapPin, label: "Location", value: "San Francisco, CA (Remote OK)", href: null },
+                { icon: Mail, label: "Email", value: "iradukundaishimwe123@gmail.com", href: "mailto:iradukundaishimwe123@gmail.com" },
+                { icon: Phone, label: "Phone", value: "+250 796 148 406", href: "tel:+250796148406" },
+                { icon: MapPin, label: "Location", value: "Rwanda (Remote OK)", href: null },
               ].map(({ icon: Icon, label, value, href }) => (
                 <div key={label} className="flex items-center gap-4">
                   <div className="w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">

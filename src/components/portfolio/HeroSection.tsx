@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowDown, Github, Linkedin, Twitter } from "lucide-react";
+import profileImg from "@/assets/profile.png";
 
 const roles = [
   "Full Stack Developer",
@@ -82,9 +83,13 @@ const HeroSection = () => {
           Available for new opportunities
         </div>
 
+        <div className="mb-6">
+          <img src={profileImg} alt="Iradukunda Ishimwe Emmanuel" className="w-32 h-32 rounded-full border-2 border-primary/30 mx-auto mb-6 object-cover" />
+        </div>
+
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight mb-6 leading-none">
           Hi, I'm{" "}
-          <span className="text-gradient">Alex Chen</span>
+          <span className="text-gradient">Emmanuel</span>
         </h1>
 
         <div className="text-xl md:text-3xl text-muted-foreground font-medium mb-8 h-10 flex items-center justify-center gap-2">
