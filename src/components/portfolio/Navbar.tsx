@@ -61,7 +61,7 @@ const Navbar = () => {
             <Code2 className="w-4 h-4 text-primary-foreground" />
           </div>
           <span className="text-foreground font-bold text-lg tracking-tight">
-            Alex<span className="text-primary">Dev</span>
+            Emmanuel<span className="text-primary">Dev</span>
           </span>
         </button>
 
