@@ -2,7 +2,7 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Github, Linkedin, Twitter, Mail, MapPin, Phone, Send, CheckCircle } from "lucide-react";
+import { Send, CheckCircle } from "lucide-react";
 import { useState } from "react";
 
 const contactSchema = z.object({
@@ -47,59 +47,8 @@ const ContactSection = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
-          {/* Left — info */}
-          <div className="reveal-left">
-            <h3 className="text-2xl font-bold mb-6">Let's work together</h3>
-            <p className="text-muted-foreground leading-relaxed mb-8">
-              I'm currently available for freelance projects, full-time roles, and consulting engagements.
-              Whether you need a complete web application or help scaling your existing system — let's talk.
-            </p>
-
-            <div className="space-y-5 mb-10">
-              {[
-                { icon: Mail, label: "Email", value: "iradukundaishimwe123@gmail.com", href: "mailto:iradukundaishimwe123@gmail.com" },
-                { icon: Phone, label: "Phone", value: "+250 796 148 406", href: "tel:+250796148406" },
-                { icon: MapPin, label: "Location", value: "Rwanda (Remote OK)", href: null },
-              ].map(({ icon: Icon, label, value, href }) => (
-                <div key={label} className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
-                    <Icon className="w-5 h-5 text-primary" />
-                  </div>
-                  <div>
-                    <p className="text-muted-foreground text-xs uppercase tracking-widest">{label}</p>
-                    {href ? (
-                      <a href={href} className="text-foreground font-medium hover:text-primary transition-colors">{value}</a>
-                    ) : (
-                      <p className="text-foreground font-medium">{value}</p>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div>
-              <p className="text-muted-foreground text-sm mb-4 uppercase tracking-widest">Find me online</p>
-              <div className="flex gap-3">
-                {[
-                  { icon: Github, href: "#", label: "GitHub" },
-                  { icon: Linkedin, href: "#", label: "LinkedIn" },
-                  { icon: Twitter, href: "#", label: "Twitter" },
-                ].map(({ icon: Icon, href, label }) => (
-                  <a
-                    key={label}
-                    href={href}
-                    aria-label={label}
-                    className="w-12 h-12 rounded-lg border border-border bg-secondary/50 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 hover:bg-primary/5 transition-all duration-200 hover:scale-110"
-                  >
-                    <Icon className="w-5 h-5" />
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Right — form */}
+        <div className="max-w-2xl mx-auto">
+          {/* Form */}
           <div className="reveal-right">
             <form onSubmit={handleSubmit(onSubmit)} className="glass rounded-2xl p-8 space-y-5">
               {submitted && (
