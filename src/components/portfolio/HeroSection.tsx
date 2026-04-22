@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ArrowDown, Github, Linkedin, Twitter } from "lucide-react";
+import { ArrowDown, Github, Linkedin, Twitter, Gauge } from "lucide-react";
 import profileImg from "@/assets/profile.png";
 
 const roles = [
@@ -29,11 +29,15 @@ const langIcons = [
   { label: "🛢️", x: "65%", y: "15%", delay: "2.5s", duration: 5.8, rotate: 6 },
 ];
 
+const speedMultipliers = { slow: 1.8, normal: 1, fast: 0.5 } as const;
+type SpeedKey = keyof typeof speedMultipliers;
+
 const HeroSection = () => {
   const [displayText, setDisplayText] = useState("");
   const [roleIndex, setRoleIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
   const [deleting, setDeleting] = useState(false);
+  const [speed, setSpeed] = useState<SpeedKey>("normal");
 
   useEffect(() => {
     const current = roles[roleIndex];
@@ -78,7 +82,7 @@ const HeroSection = () => {
           style={{
             left: icon.x,
             top: icon.y,
-            animation: `float ${icon.duration}s ease-in-out ${icon.delay} infinite`,
+            animation: `float ${icon.duration * speedMultipliers[speed]}s ease-in-out ${icon.delay} infinite`,
           }}
         >
           <div
@@ -149,6 +153,24 @@ const HeroSection = () => {
             </a>
           ))}
         </div>
+      </div>
+
+      {/* Speed control */}
+      <div className="fixed bottom-6 right-6 z-20 flex items-center gap-2 px-3 py-2 rounded-xl bg-secondary/80 border border-border/50 backdrop-blur-sm">
+        <Gauge className="w-4 h-4 text-muted-foreground" />
+        {(["slow", "normal", "fast"] as SpeedKey[]).map((s) => (
+          <button
+            key={s}
+            onClick={() => setSpeed(s)}
+            className={`px-2.5 py-1 rounded-md text-xs font-medium transition-all duration-200 ${
+              speed === s
+                ? "bg-primary text-primary-foreground"
+                : "text-muted-foreground hover:text-foreground hover:bg-secondary"
+            }`}
+          >
+            {s.charAt(0).toUpperCase() + s.slice(1)}
+          </button>
+        ))}
       </div>
 
       {/* Scroll down */}
