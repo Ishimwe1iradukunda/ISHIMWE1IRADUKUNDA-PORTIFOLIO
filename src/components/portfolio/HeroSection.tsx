@@ -155,6 +155,24 @@ const HeroSection = () => {
         </div>
       </div>
 
+      {/* Speed control */}
+      <div className="fixed bottom-6 right-6 z-20 flex items-center gap-2 px-3 py-2 rounded-xl bg-secondary/80 border border-border/50 backdrop-blur-sm">
+        <Gauge className="w-4 h-4 text-muted-foreground" />
+        {(["slow", "normal", "fast"] as SpeedKey[]).map((s) => (
+          <button
+            key={s}
+            onClick={() => setSpeed(s)}
+            className={`px-2.5 py-1 rounded-md text-xs font-medium transition-all duration-200 ${
+              speed === s
+                ? "bg-primary text-primary-foreground"
+                : "text-muted-foreground hover:text-foreground hover:bg-secondary"
+            }`}
+          >
+            {s.charAt(0).toUpperCase() + s.slice(1)}
+          </button>
+        ))}
+      </div>
+
       {/* Scroll down */}
       <button
         onClick={handleScrollDown}
