@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { ArrowDown, Github, Linkedin, Twitter } from "lucide-react";
 import profileImg from "@/assets/profile.png";
 
@@ -10,16 +10,23 @@ const roles = [
   "UI/UX Enthusiast",
 ];
 
-const floatingIcons = [
-  { label: "⚛️", x: "10%", y: "20%", delay: "0s", duration: 4, size: "text-3xl" },
-  { label: "⚙️", x: "85%", y: "15%", delay: "1s", duration: 5, size: "text-4xl" },
-  { label: "🐳", x: "75%", y: "65%", delay: "0.5s", duration: 4.5, size: "text-3xl" },
-  { label: "☁️", x: "15%", y: "70%", delay: "1.5s", duration: 5.5, size: "text-4xl" },
-  { label: "🐍", x: "50%", y: "10%", delay: "2s", duration: 3.5, size: "text-3xl" },
-  { label: "🛢️", x: "90%", y: "45%", delay: "0.8s", duration: 4.2, size: "text-3xl" },
-  { label: "⚡", x: "5%", y: "45%", delay: "1.2s", duration: 3.8, size: "text-2xl" },
-  { label: "🔥", x: "45%", y: "75%", delay: "0.3s", duration: 4.8, size: "text-3xl" },
-  { label: "💻", x: "30%", y: "30%", delay: "1.8s", duration: 5.2, size: "text-2xl" },
+const langIcons = [
+  { label: "Py", x: "8%", y: "18%", delay: "0s", duration: 6, rotate: -6 },
+  { label: "TS", x: "82%", y: "12%", delay: "1.2s", duration: 7, rotate: 8 },
+  { label: "Go", x: "18%", y: "55%", delay: "0.5s", duration: 5.5, rotate: -4 },
+  { label: "☁️", x: "72%", y: "62%", delay: "1.8s", duration: 6.5, rotate: 6 },
+  { label: "JS", x: "48%", y: "8%", delay: "2s", duration: 5, rotate: -8 },
+  { label: "⚛️", x: "88%", y: "42%", delay: "0.8s", duration: 7.5, rotate: 4 },
+  { label: "🐳", x: "5%", y: "75%", delay: "1.5s", duration: 6.2, rotate: -5 },
+  { label: "C#", x: "30%", y: "25%", delay: "0.3s", duration: 5.8, rotate: 10 },
+  { label: "🔥", x: "60%", y: "72%", delay: "1s", duration: 6.8, rotate: -3 },
+  { label: "Kt", x: "92%", y: "22%", delay: "2.2s", duration: 5.2, rotate: 7 },
+  { label: "Rs", x: "38%", y: "68%", delay: "0.7s", duration: 7.2, rotate: -9 },
+  { label: "🐍", x: "75%", y: "82%", delay: "1.6s", duration: 6, rotate: 5 },
+  { label: "⚡", x: "22%", y: "40%", delay: "0.2s", duration: 5.5, rotate: -7 },
+  { label: "C++", x: "55%", y: "35%", delay: "1.4s", duration: 6.4, rotate: 3 },
+  { label: "☕", x: "12%", y: "88%", delay: "0.9s", duration: 7, rotate: -2 },
+  { label: "🛢️", x: "65%", y: "15%", delay: "2.5s", duration: 5.8, rotate: 6 },
 ];
 
 const HeroSection = () => {
@@ -63,19 +70,23 @@ const HeroSection = () => {
       {/* Fixed grid pattern */}
       <div className="fixed inset-0 opacity-[0.03] bg-[linear-gradient(hsl(var(--foreground))_1px,transparent_1px),linear-gradient(90deg,hsl(var(--foreground))_1px,transparent_1px)] bg-[size:64px_64px] -z-30" />
 
-      {/* Fixed floating tech icons with higher opacity */}
-      {floatingIcons.map((icon, i) => (
+      {/* Codewars-style floating language icon cards */}
+      {langIcons.map((icon, i) => (
         <div
           key={i}
           className="fixed pointer-events-none select-none -z-10"
           style={{
             left: icon.x,
             top: icon.y,
-            opacity: 0.6,
             animation: `float ${icon.duration}s ease-in-out ${icon.delay} infinite`,
           }}
         >
-          <span className={icon.size}>{icon.label}</span>
+          <div
+            className="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-secondary/80 border border-border/50 flex items-center justify-center shadow-lg backdrop-blur-sm"
+            style={{ transform: `rotate(${icon.rotate}deg)`, opacity: 0.55 }}
+          >
+            <span className="text-sm md:text-base font-bold text-muted-foreground/90">{icon.label}</span>
+          </div>
         </div>
       ))}
 
