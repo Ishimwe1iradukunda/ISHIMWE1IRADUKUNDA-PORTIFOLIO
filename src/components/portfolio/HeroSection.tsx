@@ -54,22 +54,22 @@ const HeroSection = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-secondary/20" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(191_97%_58%/0.05)_0%,transparent_70%)]" />
+      {/* Fixed background layers */}
+      <div className="fixed inset-0 bg-gradient-to-br from-background via-background to-secondary/20 -z-30" />
+      <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_center,hsl(191_97%_58%/0.08)_0%,transparent_70%)] -z-30" />
 
-      {/* Grid pattern */}
-      <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(hsl(var(--foreground))_1px,transparent_1px),linear-gradient(90deg,hsl(var(--foreground))_1px,transparent_1px)] bg-[size:64px_64px]" />
+      {/* Fixed grid pattern */}
+      <div className="fixed inset-0 opacity-[0.03] bg-[linear-gradient(hsl(var(--foreground))_1px,transparent_1px),linear-gradient(90deg,hsl(var(--foreground))_1px,transparent_1px)] bg-[size:64px_64px] -z-30" />
 
-      {/* Floating tech icons */}
+      {/* Fixed floating tech icons with higher opacity */}
       {floatingIcons.map((icon, i) => (
         <div
           key={i}
-          className="absolute pointer-events-none select-none opacity-20"
+          className="fixed pointer-events-none select-none opacity-40 -z-20"
           style={{
             left: icon.x,
             top: icon.y,
-            animation: `float ${4 + i * 0.5}s ease-in-out ${icon.delay} infinite`,
+            animation: `float ${3 + i * 0.4}s ease-in-out ${icon.delay} infinite alternate`,
           }}
         >
           <span className={icon.size}>{icon.label}</span>
