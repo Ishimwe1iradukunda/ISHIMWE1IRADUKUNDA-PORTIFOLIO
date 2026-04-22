@@ -82,7 +82,7 @@ const HeroSection = () => {
           style={{
             left: icon.x,
             top: icon.y,
-            animation: `float ${icon.duration}s ease-in-out ${icon.delay} infinite`,
+            animation: `float ${icon.duration * speedMultipliers[speed]}s ease-in-out ${icon.delay} infinite`,
           }}
         >
           <div
