@@ -1,9 +1,9 @@
 import { Github, Linkedin, Twitter, Code2, ArrowUp } from "lucide-react";
 
 const socials = [
-  { icon: Github, href: "#", label: "GitHub" },
+  { icon: Github, href: "https://github.com/Ishimwe1iradukunda", label: "GitHub" },
   { icon: Linkedin, href: "#", label: "LinkedIn" },
-  { icon: Twitter, href: "#", label: "Twitter" },
+  { icon: Twitter, href: "https://x.com/gtaekashi", label: "Twitter" },
 ];
 
 const Footer = () => (
