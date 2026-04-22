@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import { ArrowDown, Github, Linkedin, Twitter } from "lucide-react";
 import profileImg from "@/assets/profile.png";
 
