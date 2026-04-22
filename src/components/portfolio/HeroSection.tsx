@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ArrowDown, Github, Linkedin, Twitter } from "lucide-react";
+import { ArrowDown, Github, Linkedin, Twitter, Gauge } from "lucide-react";
 import profileImg from "@/assets/profile.png";
 
 const roles = [
