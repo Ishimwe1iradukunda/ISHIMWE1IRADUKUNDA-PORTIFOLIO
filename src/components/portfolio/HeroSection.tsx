@@ -121,9 +121,9 @@ const HeroSection = () => {
         {/* Social links */}
         <div className="flex items-center justify-center gap-4">
           {[
-            { icon: Github, href: "#", label: "GitHub" },
+            { icon: Github, href: "https://github.com/Ishimwe1iradukunda", label: "GitHub" },
             { icon: Linkedin, href: "#", label: "LinkedIn" },
-            { icon: Twitter, href: "#", label: "Twitter" },
+            { icon: Twitter, href: "https://x.com/gtaekashi", label: "Twitter" },
           ].map(({ icon: Icon, href, label }) => (
             <a
               key={label}
