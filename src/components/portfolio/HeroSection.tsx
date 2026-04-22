@@ -67,11 +67,12 @@ const HeroSection = () => {
       {floatingIcons.map((icon, i) => (
         <div
           key={i}
-          className="fixed pointer-events-none select-none opacity-40 -z-20"
+          className="fixed pointer-events-none select-none -z-10"
           style={{
             left: icon.x,
             top: icon.y,
-            animation: `float ${3 + i * 0.4}s ease-in-out ${icon.delay} infinite alternate`,
+            opacity: 0.6,
+            animation: `float ${icon.duration}s ease-in-out ${icon.delay} infinite`,
           }}
         >
           <span className={icon.size}>{icon.label}</span>
