@@ -29,11 +29,15 @@ const langIcons = [
   { label: "🛢️", x: "65%", y: "15%", delay: "2.5s", duration: 5.8, rotate: 6 },
 ];
 
+const speedMultipliers = { slow: 1.8, normal: 1, fast: 0.5 } as const;
+type SpeedKey = keyof typeof speedMultipliers;
+
 const HeroSection = () => {
   const [displayText, setDisplayText] = useState("");
   const [roleIndex, setRoleIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
   const [deleting, setDeleting] = useState(false);
+  const [speed, setSpeed] = useState<SpeedKey>("normal");
 
   useEffect(() => {
     const current = roles[roleIndex];
