@@ -78,7 +78,7 @@ const HeroSection = () => {
       {langIcons.map((icon, i) => (
         <div
           key={i}
-          className="fixed pointer-events-none select-none -z-10"
+          className="fixed pointer-events-none select-none z-0"
           style={{
             left: icon.x,
             top: icon.y,
@@ -86,10 +86,16 @@ const HeroSection = () => {
           }}
         >
           <div
-            className="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-secondary/80 border border-border/50 flex items-center justify-center shadow-lg backdrop-blur-sm"
-            style={{ transform: `rotate(${icon.rotate}deg)`, opacity: 0.55 }}
+            className="w-14 h-14 md:w-16 md:h-16 rounded-xl border flex items-center justify-center shadow-lg backdrop-blur-sm"
+            style={{
+              transform: `rotate(${icon.rotate}deg)`,
+              opacity: 0.75,
+              background: 'hsl(220 18% 10% / 0.9)',
+              borderColor: 'hsl(191 97% 58% / 0.2)',
+              boxShadow: '0 0 15px hsl(191 97% 58% / 0.1)',
+            }}
           >
-            <span className="text-sm md:text-base font-bold text-muted-foreground/90">{icon.label}</span>
+            <span className="text-base md:text-lg font-bold text-primary/80">{icon.label}</span>
           </div>
         </div>
       ))}
