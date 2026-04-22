@@ -11,13 +11,15 @@ const roles = [
 ];
 
 const floatingIcons = [
-  { label: "React", x: "10%", y: "20%", delay: "0s", size: "text-2xl" },
-  { label: "⚙️", x: "85%", y: "15%", delay: "1s", size: "text-3xl" },
-  { label: "🐳", x: "75%", y: "65%", delay: "0.5s", size: "text-2xl" },
-  { label: "☁️", x: "15%", y: "70%", delay: "1.5s", size: "text-3xl" },
-  { label: "🐍", x: "50%", y: "10%", delay: "2s", size: "text-2xl" },
-  { label: "🛢️", x: "90%", y: "45%", delay: "0.8s", size: "text-2xl" },
-  { label: "⚡", x: "5%", y: "45%", delay: "1.2s", size: "text-xl" },
+  { label: "⚛️", x: "10%", y: "20%", delay: "0s", duration: 4, size: "text-3xl" },
+  { label: "⚙️", x: "85%", y: "15%", delay: "1s", duration: 5, size: "text-4xl" },
+  { label: "🐳", x: "75%", y: "65%", delay: "0.5s", duration: 4.5, size: "text-3xl" },
+  { label: "☁️", x: "15%", y: "70%", delay: "1.5s", duration: 5.5, size: "text-4xl" },
+  { label: "🐍", x: "50%", y: "10%", delay: "2s", duration: 3.5, size: "text-3xl" },
+  { label: "🛢️", x: "90%", y: "45%", delay: "0.8s", duration: 4.2, size: "text-3xl" },
+  { label: "⚡", x: "5%", y: "45%", delay: "1.2s", duration: 3.8, size: "text-2xl" },
+  { label: "🔥", x: "45%", y: "75%", delay: "0.3s", duration: 4.8, size: "text-3xl" },
+  { label: "💻", x: "30%", y: "30%", delay: "1.8s", duration: 5.2, size: "text-2xl" },
 ];
 
 const HeroSection = () => {
@@ -65,11 +67,12 @@ const HeroSection = () => {
       {floatingIcons.map((icon, i) => (
         <div
           key={i}
-          className="fixed pointer-events-none select-none opacity-40 -z-20"
+          className="fixed pointer-events-none select-none -z-10"
           style={{
             left: icon.x,
             top: icon.y,
-            animation: `float ${3 + i * 0.4}s ease-in-out ${icon.delay} infinite alternate`,
+            opacity: 0.6,
+            animation: `float ${icon.duration}s ease-in-out ${icon.delay} infinite`,
           }}
         >
           <span className={icon.size}>{icon.label}</span>
