@@ -43,14 +43,22 @@ const ProjectsSection = () => {
         ) : (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filtered.map((project, i) => (
-              <div key={project.title} className="reveal glass rounded-2xl overflow-hidden hover:border-primary/30 transition-all duration-300 hover:-translate-y-2 group" style={{ transitionDelay: `${i * 0.08}s` }}>
+              <div 
+                key={project.title} 
+                className="reveal glass rounded-2xl overflow-hidden hover:border-primary/30 transition-all duration-300 hover:-translate-y-2 group border border-border/40 hover:shadow-lg hover:shadow-primary/10" 
+                style={{ transitionDelay: `${i * 50}ms` }}
+              >
                 <div className={`h-32 bg-gradient-to-br ${project.gradient} flex items-center justify-center relative overflow-hidden`}>
-                  {project.featured && <span className="absolute top-3 right-3 text-xs bg-primary text-primary-foreground px-2 py-0.5 rounded-full font-semibold">Featured</span>}
+                  {project.featured && (
+                    <span className="absolute top-3 right-3 text-xs bg-primary text-primary-foreground px-2 py-0.5 rounded-full font-semibold">
+                      Featured
+                    </span>
+                  )}
                   <span className="text-4xl opacity-50">{"</>"}</span>
                 </div>
                 <div className="p-6">
                   <div className="flex items-start justify-between mb-3">
-                    <h3 className="text-lg font-bold group-hover:text-primary transition-colors">{project.title}</h3>
+                    <h3 className="text-lg font-bold group-hover:text-primary transition-colors flex-1">{project.title}</h3>
                     <div className="flex items-center gap-1 text-muted-foreground text-xs shrink-0 ml-2">
                       <Star className="w-3 h-3 fill-primary text-primary" />
                       <span>{project.stars}</span>
@@ -63,8 +71,26 @@ const ProjectsSection = () => {
                     ))}
                   </div>
                   <div className="flex gap-3">
-                    <a href={project.liveUrl} className="flex items-center gap-1.5 text-sm text-primary font-medium hover:underline"><ExternalLink className="w-3.5 h-3.5" /> Live Demo</a>
-                    <a href={project.githubUrl} className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground font-medium"><Github className="w-3.5 h-3.5" /> Code</a>
+                    <a 
+                      href={project.githubUrl} 
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1.5 text-sm text-primary font-medium hover:underline transition-colors"
+                    >
+                      <Github className="w-3.5 h-3.5" /> 
+                      Repository
+                    </a>
+                    {project.liveUrl && project.liveUrl !== project.githubUrl && (
+                      <a 
+                        href={project.liveUrl} 
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground font-medium transition-colors"
+                      >
+                        <ExternalLink className="w-3.5 h-3.5" /> 
+                        Live Demo
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>
