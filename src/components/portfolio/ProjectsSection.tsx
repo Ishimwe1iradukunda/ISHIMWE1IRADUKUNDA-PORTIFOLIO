@@ -1,26 +1,16 @@
 import { useState } from "react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { ExternalLink, Github, Star } from "lucide-react";
-
-const allProjects: {
-  title: string;
-  description: string;
-  tags: string[];
-  category: string;
-  stars: number;
-  liveUrl: string;
-  githubUrl: string;
-  featured: boolean;
-  gradient: string;
-}[] = [];
-
-const categories = ["All", "Full Stack", "DevOps", "API"];
+import { portfolioProjects, projectCategories } from "@/data/githubProjects";
 
 const ProjectsSection = () => {
   const sectionRef = useScrollReveal();
-  const [activeFilter, setActiveFilter] = useState("All");
+  const [activeFilter, setActiveFilter] = useState<(typeof projectCategories)[number]>("All");
 
-  const filtered = activeFilter === "All" ? allProjects : allProjects.filter((p) => p.category === activeFilter);
+  const filtered =
+    activeFilter === "All"
+      ? portfolioProjects
+      : portfolioProjects.filter((p) => p.category === activeFilter);
 
   return (
     <section id="projects" className="py-24">
@@ -33,7 +23,7 @@ const ProjectsSection = () => {
 
         {/* Filter tabs */}
         <div className="flex flex-wrap justify-center gap-2 mb-12 reveal">
-          {categories.map((cat) => (
+          {projectCategories.map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveFilter(cat)}
