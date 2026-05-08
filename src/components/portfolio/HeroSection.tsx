@@ -38,6 +38,20 @@ const HeroSection = () => {
   const [charIndex, setCharIndex] = useState(0);
   const [deleting, setDeleting] = useState(false);
   const [speed, setSpeed] = useState<SpeedKey>("normal");
+  const [scale, setScale] = useState(1);
+
+  useEffect(() => {
+    const updateScale = () => {
+      const w = window.innerWidth;
+      if (w < 640) setScale(0.85);       // mobile
+      else if (w < 1024) setScale(1);    // tablet
+      else if (w < 1536) setScale(1.15); // desktop
+      else setScale(1.35);               // large desktop
+    };
+    updateScale();
+    window.addEventListener("resize", updateScale);
+    return () => window.removeEventListener("resize", updateScale);
+  }, []);
 
   useEffect(() => {
     const current = roles[roleIndex];
@@ -86,16 +100,23 @@ const HeroSection = () => {
           }}
         >
           <div
-            className="w-14 h-14 md:w-16 md:h-16 rounded-xl border flex items-center justify-center shadow-lg backdrop-blur-sm"
+            className="rounded-xl border flex items-center justify-center shadow-lg backdrop-blur-sm"
             style={{
+              width: `${3.5 * scale}rem`,
+              height: `${3.5 * scale}rem`,
               transform: `rotate(${icon.rotate}deg)`,
-              opacity: 0.75,
+              opacity: 0.65 + scale * 0.1,
               background: 'hsl(220 18% 10% / 0.9)',
-              borderColor: 'hsl(191 97% 58% / 0.2)',
-              boxShadow: '0 0 15px hsl(191 97% 58% / 0.1)',
+              borderColor: 'hsl(191 97% 58% / 0.25)',
+              boxShadow: `0 0 ${18 * scale}px hsl(191 97% 58% / 0.12)`,
             }}
           >
-            <span className="text-base md:text-lg font-bold text-primary/80">{icon.label}</span>
+            <span
+              className="font-bold text-primary/80"
+              style={{ fontSize: `${0.85 * scale}rem` }}
+            >
+              {icon.label}
+            </span>
           </div>
         </div>
       ))}
