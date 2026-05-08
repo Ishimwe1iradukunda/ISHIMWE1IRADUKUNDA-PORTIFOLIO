@@ -38,6 +38,20 @@ const HeroSection = () => {
   const [charIndex, setCharIndex] = useState(0);
   const [deleting, setDeleting] = useState(false);
   const [speed, setSpeed] = useState<SpeedKey>("normal");
+  const [scale, setScale] = useState(1);
+
+  useEffect(() => {
+    const updateScale = () => {
+      const w = window.innerWidth;
+      if (w < 640) setScale(0.85);       // mobile
+      else if (w < 1024) setScale(1);    // tablet
+      else if (w < 1536) setScale(1.15); // desktop
+      else setScale(1.35);               // large desktop
+    };
+    updateScale();
+    window.addEventListener("resize", updateScale);
+    return () => window.removeEventListener("resize", updateScale);
+  }, []);
 
   useEffect(() => {
     const current = roles[roleIndex];
