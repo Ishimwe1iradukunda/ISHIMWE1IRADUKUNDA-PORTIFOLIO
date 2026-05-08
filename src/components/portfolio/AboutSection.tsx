@@ -1,8 +1,14 @@
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { User, Briefcase, Code, Award } from "lucide-react";
+import { Briefcase, Code, Github, Zap } from "lucide-react";
 import profileImg from "@/assets/profile.png";
+import { portfolioProjects } from "@/data/githubProjects";
 
-const stats: { icon: typeof Briefcase; value: string; label: string }[] = [];
+const stats: { icon: typeof Briefcase; value: string; label: string }[] = [
+  { icon: Github, value: `${portfolioProjects.length}+`, label: "Public Repositories" },
+  { icon: Code, value: "TypeScript", label: "Primary Stack" },
+  { icon: Zap, value: "Full Stack", label: "Focus Area" },
+  { icon: Briefcase, value: "Open", label: "To Opportunities" },
+];
 
 const AboutSection = () => {
   const sectionRef = useScrollReveal();

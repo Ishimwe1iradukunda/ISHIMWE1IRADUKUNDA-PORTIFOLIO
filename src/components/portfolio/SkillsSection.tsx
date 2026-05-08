@@ -5,7 +5,40 @@ const skillCategories: {
   title: string;
   icon: string;
   skills: { name: string; level: number }[];
-}[] = [];
+}[] = [
+  {
+    title: "Frontend",
+    icon: "🎨",
+    skills: [
+      { name: "TypeScript", level: 92 },
+      { name: "React", level: 95 },
+      { name: "Tailwind CSS", level: 90 },
+      { name: "shadcn/ui", level: 85 },
+      { name: "HTML / CSS", level: 95 },
+    ],
+  },
+  {
+    title: "Backend & Tools",
+    icon: "⚙️",
+    skills: [
+      { name: "Node.js", level: 85 },
+      { name: "JavaScript", level: 95 },
+      { name: "Vite", level: 88 },
+      { name: "REST APIs", level: 85 },
+      { name: "Git / GitHub", level: 90 },
+    ],
+  },
+  {
+    title: "Domains",
+    icon: "🚀",
+    skills: [
+      { name: "E-commerce", level: 85 },
+      { name: "Healthcare apps", level: 80 },
+      { name: "Business tools", level: 88 },
+      { name: "Media platforms", level: 78 },
+    ],
+  },
+];
 
 const SkillBar = ({ name, level, visible }: { name: string; level: number; visible: boolean }) => (
   <div className="mb-4">
